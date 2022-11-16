@@ -1,21 +1,21 @@
-const urlLink = 'https://api.thecatapi.com/v1/images/search';
+const urlLink = 'https://dog.ceo/api/breeds/image/random';
 ;
-const catBtn = document.getElementById('change-cat');
-const catImg = document.getElementById('cat');
+const dogBtn = document.getElementById('change-dog');
+const dogImg = document.getElementById('dog');
 
-const getCats = async () => {
+const getDogs = async () => {
     const data = await fetch(urlLink)
     .then((param) => param.json())
     .catch((err) => console.log(err));
 
-    return data.url;
+    return data.message;
 
 }
-console.log(getCats())
+console.log(getDogs())
 const loadImg = async () => {
-    catImg.src = await getCats();
+    dogImg.src = await getDogs();
 }
 
-catBtn.addEventListener('click', loadImg)
+dogBtn.addEventListener('click', loadImg)
 
 loadImg()
